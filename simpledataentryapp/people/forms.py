@@ -9,7 +9,7 @@ class NewPersonForm(forms.ModelForm):
         max_length=Person._meta.get_field('name').max_length
     )
     title = forms.CharField(
-        label='Ttile',
+        label='Title',
         max_length=Person._meta.get_field('title').max_length
     )
     age = forms.IntegerField(

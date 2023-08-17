@@ -1,5 +1,41 @@
 {% extends "base.html" %}
 {% block title %}Confirmation{% endblock title %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'people/people.css' %}">{% endblock extra_css %}
 {% block content %}
-<h1>CONFIRMATION PAGE for {{ person_id }}</h1>
+<div class="flex-container">
+    <div class="flex-item">
+        <h1>Confirmation Page</h1>
+    </div>
+    <div class="flex-item">
+        <p>New row for '{{confirmed_person}}' with title: '{{confirmed_person.title}}' <span class="confirmation">highlighted</span> below</p>
+    </div>
+    <div class="flex-item">
+        <table class="confirmation-table">
+            <thead>
+                <tr>
+                    {% for label in table_headers %}
+                        {% comment %} don't want to display id field here {% endcomment %}
+                        {% if label != "id" %}<th>{{ label|title }}</th>{% endif %}
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in all_people_arr %}
+                    {% comment %} first column will contain the id field {% endcomment %}
+                    <tr {% if confirmed_person.id == person.0 %}class="confirmation"{% endif %}>
+                        {% comment %} don't show id value {% endcomment %}
+                        {% for value in person|slice:"1:" %}
+                            {% comment %} if statement below is to prevent null age values displaying as 'None' {% endcomment %}
+                            <td>{% if value %}{{ value }}{% endif %}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="flex-item">
+        <button class="new-person-button" type="button"><a class="clean-link" href="{% url 'people:new' %}" role="button">Add new person</a></button>
+    </div>
+</div>
 {% endblock content %}

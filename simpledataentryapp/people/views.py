@@ -30,5 +30,23 @@ def confirmation(request, person_id):
     """
     Confirmation page that displays details of the created person and a table of all other people in the database
     """
-    get_object_or_404(Person, pk=person_id)
-    return render(request, 'people/confirmation.html', {'person_id': person_id})
+    confirmed_person = get_object_or_404(Person, pk=person_id)
+
+    # for helping display fields
+    person_fields_excluding_id = [field.name for field in Person._meta.fields]
+
+    # an array of arrays to represent all people
+    all_people = [
+        [getattr(person, field) for field in person_fields_excluding_id]
+        for person in Person.objects.all()
+    ]
+
+    return render(
+        request,
+        'people/confirmation.html',
+        {
+            'confirmed_person': confirmed_person,
+            'all_people_arr': all_people,
+            'table_headers': person_fields_excluding_id
+        }
+    )
