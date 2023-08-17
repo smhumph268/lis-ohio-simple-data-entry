@@ -16,7 +16,7 @@ Notes:
 - Make sure Django is installed. These [install instructions](https://docs.djangoproject.com/en/4.2/topics/install/#installing-official-release) and [how to for windows](https://docs.djangoproject.com/en/4.2/howto/windows/) are useful. If you need to install Django, run the following command:
 	- py -m pip install Django
 
-- Get the database set up, run the following command:
+- Get the database set up, run the following command (if this is the first time installing python on the machine, you may need to open a new command prompt window to the 'manage.py' file):
 	- python manage.py migrate
 
 - If you'd like to run any of the unit tests, you can run the following command:
