@@ -1,0 +1,29 @@
+.error-text {
+    color: red;
+}
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.flex-item {
+    margin: auto;
+}
+.confirmation {
+    background-color: LightGreen;
+}
+.confirmation-table {
+    vertical-align: middle;
+    text-align: center;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.new-person-button {
+    margin-top: 10px;
+}
+.clean-link {
+    text-decoration: none;
+}
