@@ -11,6 +11,8 @@ Notes:
 
 - Make sure Python is installed. Download [here](https://www.python.org/downloads/). I followed all defaults in the setup wizard and checked "Add Python X.Y to PATH".
 
+- Open a command prompt and navigate to the folder path that contains the 'manage.py' file for the project
+
 - Make sure Django is installed. These [install instructions](https://docs.djangoproject.com/en/4.2/topics/install/#installing-official-release) and [how to for windows](https://docs.djangoproject.com/en/4.2/howto/windows/) are useful.
 	- py -m pip install Django
 
@@ -22,7 +24,6 @@ Notes:
 	- py manage.py test people
 
 - Try to get a test server running
-	- Open a command prompt and navigate to the folder path that contains the 'manage.py' file for the project
 	- run this command:
 		- py manage.py runserver 0.0.0.0:8000
 	- Navigate to 127.0.0.1:8000 in a browser (preferably Chrome, that's the browser I used while developing)
